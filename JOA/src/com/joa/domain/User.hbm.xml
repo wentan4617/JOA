@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.joa.domain.User" >
+		<id name="uid" type="java.lang.Long" length="10">
+			<column name="uid"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="uname" type="java.lang.String" length="20">
+			<column name="uname"></column>
+		</property>
+		<property name="password" type="java.lang.String" length="20">
+			<column name="password"></column>
+		</property>
+		<property name="sex" type="java.lang.String" length="20">
+			<column name="sex"></column>
+		</property>
+		<property name="phone" type="java.lang.String" length="20">
+			<column name="phone"></column>
+		</property>
+		
+		<set name="posts" table="user-post">
+			<key>
+				<column name="uid"></column>
+			</key>
+			<many-to-many class="com.joa.domain.Post" column="pid">
+			</many-to-many>
+		</set>
+		<many-to-one name= "department" class="com.joa.domain.Department" column="did"></many-to-one>
+		
+	</class>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</hibernate-mapping>
